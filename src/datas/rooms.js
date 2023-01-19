@@ -27,7 +27,7 @@ const rooms = [
     roomSize: 1800,
     bedRoom: 1,
     bathRoom: 1,
-    period: "Year",
+    period: "Week",
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const rooms = [
     roomSize: 1800,
     bedRoom: 2,
     bathRoom: 2,
-    period: "Year",
+    period: "Week",
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ const rooms = [
     roomSize: 1800,
     bedRoom: 2,
     bathRoom: 2,
-    period: "Year",
+    period: "Day",
   },
   {
     id: 5,

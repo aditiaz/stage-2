@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import Col from "react-bootstrap/Col";
 import "react-datepicker/dist/react-datepicker.css";
-import datas from "../datas/rooms";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
+import { RoomsContext } from "../context/roomsContext";
 
 export const RoomsCard = () => {
+  const { rooms } = useContext(RoomsContext);
+  // const dats = rooms;
+  // console.log(rooms);
   return (
     <Col size="lg" style={{ marginBlock: "1rem", marginInlineStart: "25rem" }}>
       <CardGroup
         className="gap-3 mx-3   d-flex justify-content-between"
         style={{ marginTop: "12rem" }}
       >
-        {datas.map((e, i) => {
+        {rooms.map((e, i) => {
+          console.log(typeof rooms);
+          console.log(rooms);
           return (
             <Col xs={3} sm={3} style={{ width: "25rem" }}>
-              <Card>
+              <Card key={e.imageUrl}>
                 <span
                   className="position-absolute fw-bold p"
                   style={{
@@ -34,7 +39,7 @@ export const RoomsCard = () => {
 
                 <Card.Body>
                   <Card.Title>
-                    Rp.{e.roomCost.toLocaleString()} / {e.period}
+                    Rp.{e.roomCost} / {e.period}
                   </Card.Title>
                   <Card.Text>
                     <p className="fw-bold">

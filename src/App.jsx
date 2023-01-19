@@ -1,16 +1,19 @@
 import "./App.css";
-import Row from "react-bootstrap/Row";
 import "react-datepicker/dist/react-datepicker.css";
-import * as Components from "./components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { RoomsContextProvider } from "./context/roomsContext";
+import { Home } from "./pages/Home";
 
 function App() {
   return (
     <>
-      <Components.Navbars />
-      <Row>
-        <Components.SideBar />
-        <Components.RoomsCard />
-      </Row>
+      <RoomsContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </RoomsContextProvider>
     </>
   );
 }

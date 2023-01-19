@@ -6,9 +6,9 @@ import { useState } from "react";
 
 export const Calendar = () => {
   const [startDate, setStartDate] = useState(new Date());
-  const tanggal = Date.parse(startDate);
-  console.log(tanggal);
-  console.log(startDate);
+  // const tanggal = Date.parse(startDate);
+  // console.log(tanggal);
+  // console.log(startDate);
   const CustomInput = ({ value, onClick }) => (
     <Row>
       <div

@@ -1,15 +1,17 @@
 import React from "react";
-// import "./App.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { BsCalendar3 } from "react-icons/bs";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Calendar } from "./Calendar";
+import { RoomsContext } from "../context/roomsContext";
 
 export const SideBar = () => {
+  const { filterPeriod } = useContext(RoomsContext);
+
   const [buttons, setButtons] = useState("1");
   const [button, setButton] = useState("1");
   const [btnTime, setBtnTime] = useState("day");
@@ -28,7 +30,11 @@ export const SideBar = () => {
                 fontWeight: "bold",
               }}
               className={btnTime === "day" ? "py-2 w-25 click" : "py-2 w-25 noClick"}
-              onClick={() => setBtnTime("day")}
+              onClick={() => {
+                setBtnTime("day");
+                filterPeriod("Day");
+              }}
+              // onClick={filterPeriod("Day")}
             >
               Day
             </Button>
