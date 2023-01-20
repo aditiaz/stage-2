@@ -5,10 +5,14 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { BsSearch } from "react-icons/bs";
 import { SignIn } from "./Sign-in";
+import { SignUp } from "./Sign-up";
+
 import { useState } from "react";
 
 export const Navbars = () => {
   const [modalShow, setModalShow] = useState(false);
+  const [modalShow2, setModalShow2] = useState(false);
+
   return (
     <>
       <Navbar className="d-flex justify-content-around  fixed-top top-0" bg="white">
@@ -28,6 +32,11 @@ export const Navbars = () => {
         </InputGroup>
 
         <div className="d-flex justify-content-around gap-5">
+          <SignIn
+            className="d-flex justify-content-center"
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
           <Button
             onClick={() => setModalShow(true)}
             // disabled
@@ -36,19 +45,34 @@ export const Navbars = () => {
           >
             Sign In
           </Button>
-          <SignIn
+          <SignUp
+            className="d-flex justify-content-center"
+            show={modalShow2}
+            onHide={() => setModalShow2(false)}
+          />
+          <Button
+            onClick={() => setModalShow2(true)}
+            // disabled
+            className="text-secondary fw-bold"
+            style={{ backgroundColor: "rgba(255, 255, 255, 1)", border: "none" }}
+          >
+            Sign up
+          </Button>
+
+          {/* <SignUp
             className="d-flex justify-content-center"
             show={modalShow}
             onHide={() => setModalShow(false)}
           />
 
           <Button
+            onHide={() => setModalShow(false)}
             className="fw-bold"
             style={{ backgroundColor: "rgba(196, 196, 196, 0.25)" }}
             variant="light"
           >
             Sign Up
-          </Button>
+          </Button> */}
         </div>
       </Navbar>
     </>

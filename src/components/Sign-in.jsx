@@ -1,8 +1,7 @@
-import { React, useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { Col } from "react-bootstrap";
+import { React, useContext, useState } from "react";
 import { RoomsContext } from "../context/roomsContext";
 
 export const SignIn = (props) => {
@@ -10,13 +9,13 @@ export const SignIn = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const { handleChange, handleSubmit, localSignIn2 } = useContext(RoomsContext);
-  console.log(localSignIn2);
+  const { handleChange, handleSubmit, localSignForm2 } = useContext(RoomsContext);
+  console.log(localSignForm2);
 
   return (
     <Modal
-      show={show}
-      onHide={handleClose}
+      // show={show}
+      // onHide={handleClose}
       className="d-flex justifycontent-center w-25"
       {...props}
       size="xs"
@@ -48,16 +47,16 @@ export const SignIn = (props) => {
               rows={1}
             />
           </Form.Group>
-          <Col className="d-flex justify-content-center">
-            <Button
-              // type="submit"
-              className="w-100 click"
-              style={{ border: "none" }}
-              onClick={handleClose}
-            >
-              Sign In
-            </Button>
-          </Col>
+          {/* <Col className="d-flex justify-content-center"> */}
+          <Button
+            type="submit"
+            className="w-100 click"
+            style={{ border: "none" }}
+            onClick={handleClose}
+          >
+            Sign In
+          </Button>
+          {/* </Col> */}
         </Form>
         <h6 className="d-flex justify-content-center text-secondary my-3">
           Don't have an account? click &nbsp;

@@ -10,11 +10,16 @@ export const RoomsContextProvider = (props) => {
   const [signForm, setSignForm] = useState({
     username: "",
     password: "",
+    email: "",
+    listAs: "",
+    gender: "",
+    phone: "",
+    message: "",
   });
 
   // const { username, password } = signForm;
-  const localSignIn = localStorage.getItem("UserSignIn");
-  const localSignIn2 = JSON.parse(localSignIn);
+  const localSignForm = localStorage.getItem("UserSignIn");
+  const localSignForm2 = JSON.parse(localSignForm);
   // console.log(localSignIn2);
 
   const handleSubmit = (e) => {
@@ -37,7 +42,7 @@ export const RoomsContextProvider = (props) => {
   };
   return (
     <RoomsContext.Provider
-      value={{ localSignIn2, rooms, filterPeriod, handleChange, handleSubmit }}
+      value={{ localSignForm2, rooms, filterPeriod, handleChange, handleSubmit }}
     >
       {props.children}
     </RoomsContext.Provider>
