@@ -14,7 +14,7 @@ export const SideBar = () => {
 
   const [buttons, setButtons] = useState("1");
   const [button, setButton] = useState("1");
-  const [btnTime, setBtnTime] = useState("day");
+  const [btnTime, setBtnTime] = useState("month");
   return (
     <Col className="col-3  fixed-top " style={{ marginTop: "7.5rem", height: "40rem" }}>
       <Col className="mx-5 ">
@@ -117,7 +117,7 @@ export const SideBar = () => {
                 width: "3.5rem",
                 height: "2.6rem",
                 color: "black",
-                backgroundColor: "rgba(196, 196, 196, 0.25)",
+                // backgroundColor: "rgba(196, 196, 196, 0.25)",
               }}
               onClick={() => setButtons("3")}
             >

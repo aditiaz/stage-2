@@ -7,17 +7,14 @@ import { RoomsContext } from "../context/roomsContext";
 
 export const RoomsCard = () => {
   const { rooms } = useContext(RoomsContext);
-  // const dats = rooms;
-  // console.log(rooms);
+
   return (
     <Col size="lg" style={{ marginBlock: "1rem", marginInlineStart: "25rem" }}>
       <CardGroup
         className="gap-3 mx-3   d-flex justify-content-between"
         style={{ marginTop: "12rem" }}
       >
-        {rooms.map((e, i) => {
-          console.log(typeof rooms);
-          console.log(rooms);
+        {rooms.map((e) => {
           return (
             <Col xs={3} sm={3} style={{ width: "25rem" }}>
               <Card key={e.imageUrl}>

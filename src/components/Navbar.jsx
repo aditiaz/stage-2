@@ -4,8 +4,11 @@ import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { BsSearch } from "react-icons/bs";
+import { SignIn } from "./Sign-in";
+import { useState } from "react";
 
 export const Navbars = () => {
+  const [modalShow, setModalShow] = useState(false);
   return (
     <>
       <Navbar className="d-flex justify-content-around  fixed-top top-0" bg="white">
@@ -26,12 +29,18 @@ export const Navbars = () => {
 
         <div className="d-flex justify-content-around gap-5">
           <Button
-            disabled
+            onClick={() => setModalShow(true)}
+            // disabled
             className="text-secondary fw-bold"
             style={{ backgroundColor: "rgba(255, 255, 255, 1)", border: "none" }}
           >
             Sign In
           </Button>
+          <SignIn
+            className="d-flex justify-content-center"
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
 
           <Button
             className="fw-bold"
