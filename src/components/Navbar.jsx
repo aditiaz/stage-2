@@ -4,9 +4,7 @@ import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { BsSearch } from "react-icons/bs";
-import { SignIn } from "./Sign-in";
-import { SignUp } from "./Sign-up";
-
+import * as Components from "./index";
 import { useState } from "react";
 
 export const Navbars = () => {
@@ -32,7 +30,7 @@ export const Navbars = () => {
         </InputGroup>
 
         <div className="d-flex justify-content-around gap-5">
-          <SignIn
+          <Components.SignIn
             className="d-flex justify-content-center"
             show={modalShow}
             onHide={() => setModalShow(false)}
@@ -45,7 +43,7 @@ export const Navbars = () => {
           >
             Sign In
           </Button>
-          <SignUp
+          <Components.SignUp
             className="d-flex justify-content-center"
             show={modalShow2}
             onHide={() => setModalShow2(false)}
@@ -58,22 +56,8 @@ export const Navbars = () => {
           >
             Sign up
           </Button>
-
-          {/* <SignUp
-            className="d-flex justify-content-center"
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-          />
-
-          <Button
-            onHide={() => setModalShow(false)}
-            className="fw-bold"
-            style={{ backgroundColor: "rgba(196, 196, 196, 0.25)" }}
-            variant="light"
-          >
-            Sign Up
-          </Button> */}
         </div>
+        <Components.DropdownNav />
       </Navbar>
     </>
   );
