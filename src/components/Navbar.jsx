@@ -21,7 +21,14 @@ export const Navbars = () => {
     <>
       <Navbar className="d-flex justify-content-around  fixed-top top-0" bg="white">
         <Navbar.Brand href="#home">
-          <img style={{ width: "200px" }} src={Logo} alt="logo" />
+          <img
+            onClick={() => {
+              navigate("/");
+            }}
+            style={{ width: "200px" }}
+            src={Logo}
+            alt="logo"
+          />
         </Navbar.Brand>
         <InputGroup className="w-25 ">
           <Form.Control
@@ -66,36 +73,6 @@ export const Navbars = () => {
             </Button>
           </div>
         )}
-
-        {/* <div className="d-flex justify-content-around gap-5">
-          <Components.SignIn
-            className="d-flex justify-content-center"
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-          />
-          <Button
-            onClick={() => setModalShow(true)}
-            // disabled
-            className="text-secondary fw-bold"
-            style={{ backgroundColor: "rgba(255, 255, 255, 1)", border: "none" }}
-          >
-            Sign In
-          </Button>
-          <Components.SignUp
-            className="d-flex justify-content-center"
-            show={modalShow2}
-            onHide={() => setModalShow2(false)}
-          />
-          <Button
-            onClick={() => setModalShow2(true)}
-            // disabled
-            className="text-secondary fw-bold"
-            style={{ backgroundColor: "rgba(255, 255, 255, 1)", border: "none" }}
-          >
-            Sign up
-          </Button>
-        </div> */}
-        {/* <Components.DropdownNav /> */}
       </Navbar>
     </>
   );
