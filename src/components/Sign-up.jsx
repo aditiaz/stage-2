@@ -9,8 +9,8 @@ export const SignUp = (props) => {
   const handleClose = () => setShow(false);
   //   const handleShow = () => setShow(true);
 
-  const { handleChange, handleSubmit, localSignForm2 } = useContext(RoomsContext);
-  console.log(localSignForm2);
+  const { handleSignUpChange, handleSignUpSubmit, localSignUpForm2 } = useContext(RoomsContext);
+  // console.log(localSignUpForm2);
   const listAs = [{ value: "" }, { value: "Tenant" }, { value: "Admin" }];
   const gender = [{ value: "" }, { value: "Man" }, { value: "Woman" }];
 
@@ -27,15 +27,21 @@ export const SignUp = (props) => {
       <h2 className="d-flex justify-content-center my-3">Sign Up</h2>
 
       <Modal.Body style={{ height: "20rem", overflow: "hidden", overflow: "auto" }}>
-        <Form onSubmit={handleSubmit} className="fw-bold">
+        <Form onSubmit={handleSignUpSubmit} className="fw-bold">
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Full Name</Form.Label>
-            <Form.Control onChange={handleChange} id="text" name="text" type="text" rows={1} />
+            <Form.Control
+              onChange={handleSignUpChange}
+              id="fullname"
+              name="fullname"
+              type="text"
+              rows={1}
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Username</Form.Label>
             <Form.Control
-              onChange={handleChange}
+              onChange={handleSignUpChange}
               id="username"
               name="username"
               type="text"
@@ -44,12 +50,18 @@ export const SignUp = (props) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Email</Form.Label>
-            <Form.Control onChange={handleChange} id="email" name="email" type="email" autoFocus />
+            <Form.Control
+              onChange={handleSignUpChange}
+              id="email"
+              name="email"
+              type="email"
+              autoFocus
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Password</Form.Label>
             <Form.Control
-              onChange={handleChange}
+              onChange={handleSignUpChange}
               id="password"
               name="password"
               type="password"
@@ -58,7 +70,13 @@ export const SignUp = (props) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>List As</Form.Label>
-            <Form.Select onChange={handleChange} id="listAs" name="listAs" type="text" autoFocus>
+            <Form.Select
+              onChange={handleSignUpChange}
+              id="listAs"
+              name="listAs"
+              type="text"
+              autoFocus
+            >
               {listAs.map((e) => {
                 return <option>{e.value}</option>;
               })}
@@ -66,7 +84,13 @@ export const SignUp = (props) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Gender</Form.Label>
-            <Form.Select onChange={handleChange} id="gender" name="gender" type="text" autoFocus>
+            <Form.Select
+              onChange={handleSignUpChange}
+              id="gender"
+              name="gender"
+              type="text"
+              autoFocus
+            >
               {gender.map((e) => {
                 return <option>{e.value}</option>;
               })}
@@ -74,16 +98,22 @@ export const SignUp = (props) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Phone</Form.Label>
-            <Form.Control onChange={handleChange} id="phone" name="phone" type="text" autoFocus />
+            <Form.Control
+              onChange={handleSignUpChange}
+              id="phone"
+              name="phone"
+              type="text"
+              autoFocus
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Message</Form.Label>
+            <Form.Label>Address</Form.Label>
             <Form.Control
               as="textarea"
               rows={3}
-              onChange={handleChange}
-              id="message"
-              name="message"
+              onChange={handleSignUpChange}
+              id="address"
+              name="address"
               type="text"
               style={{ resize: "none" }}
               autoFocus

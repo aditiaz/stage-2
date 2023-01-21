@@ -9,8 +9,9 @@ export const SignIn = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const { handleChange, handleSubmit, localSignForm2 } = useContext(RoomsContext);
-  console.log(localSignForm2);
+  const { handleSignInChange, handleSignInSubmit, signInForm } = useContext(RoomsContext);
+  console.log(signInForm);
+  // console.log(localStorage.getItem("UserSignIn"));
 
   return (
     <Modal
@@ -25,11 +26,11 @@ export const SignIn = (props) => {
       <h2 className="d-flex justify-content-center my-3">Sign In</h2>
 
       <Modal.Body>
-        <Form onSubmit={handleSubmit} className="fw-bold">
+        <Form onSubmit={handleSignInSubmit} className="fw-bold">
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Username</Form.Label>
             <Form.Control
-              onChange={handleChange}
+              onChange={handleSignInChange}
               id="username"
               name="username"
               type="text"
@@ -39,7 +40,7 @@ export const SignIn = (props) => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Password</Form.Label>
             <Form.Control
-              onChange={handleChange}
+              onChange={handleSignInChange}
               id="password"
               name="password"
               style={{ resize: "none" }}

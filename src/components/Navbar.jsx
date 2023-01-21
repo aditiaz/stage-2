@@ -6,10 +6,14 @@ import Button from "react-bootstrap/Button";
 import { BsSearch } from "react-icons/bs";
 import * as Components from "./index";
 import { useState } from "react";
+import { useContext } from "react";
+import { RoomsContext } from "../context/roomsContext";
 
 export const Navbars = () => {
   const [modalShow, setModalShow] = useState(false);
   const [modalShow2, setModalShow2] = useState(false);
+  const { login } = useContext(RoomsContext);
+  // console.log(login);
 
   return (
     <>
@@ -28,8 +32,40 @@ export const Navbars = () => {
             <BsSearch strokeWidth={0.5} fontSize={29} style={{ cursor: "pointer" }} />
           </InputGroup.Text>
         </InputGroup>
+        {localStorage.getItem("UserSignIn") ? (
+          <Components.DropdownNav />
+        ) : (
+          <div className="d-flex justify-content-around gap-5">
+            <Components.SignIn
+              className="d-flex justify-content-center"
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+            />
+            <Button
+              onClick={() => setModalShow(true)}
+              // disabled
+              className="text-secondary fw-bold"
+              style={{ backgroundColor: "rgba(255, 255, 255, 1)", border: "none" }}
+            >
+              Sign In
+            </Button>
+            <Components.SignUp
+              className="d-flex justify-content-center"
+              show={modalShow2}
+              onHide={() => setModalShow2(false)}
+            />
+            <Button
+              onClick={() => setModalShow2(true)}
+              // disabled
+              className="text-secondary fw-bold"
+              style={{ backgroundColor: "rgba(255, 255, 255, 1)", border: "none" }}
+            >
+              Sign up
+            </Button>
+          </div>
+        )}
 
-        <div className="d-flex justify-content-around gap-5">
+        {/* <div className="d-flex justify-content-around gap-5">
           <Components.SignIn
             className="d-flex justify-content-center"
             show={modalShow}
@@ -56,8 +92,8 @@ export const Navbars = () => {
           >
             Sign up
           </Button>
-        </div>
-        <Components.DropdownNav />
+        </div> */}
+        {/* <Components.DropdownNav /> */}
       </Navbar>
     </>
   );
