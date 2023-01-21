@@ -3,6 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Routes, Route } from "react-router-dom";
 // import { RoomsContextProvider } from "./context/roomsContext";
 import { Home } from "./pages/Home";
+import { DetailProperty } from "./pages/DetailProperty";
 import { RoomsContextProvider } from "./context/roomsContext";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         {/* <BrowserRouter> */}
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/detail/:room" element={<DetailProperty />} />
           <Route path="*" element={<RoomsContextProvider />} />
         </Routes>
         {/* </BrowserRouter> */}

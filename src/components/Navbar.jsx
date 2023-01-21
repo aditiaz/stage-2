@@ -8,11 +8,13 @@ import * as Components from "./index";
 import { useState } from "react";
 import { useContext } from "react";
 import { RoomsContext } from "../context/roomsContext";
+import { useNavigate } from "react-router-dom";
 
 export const Navbars = () => {
   const [modalShow, setModalShow] = useState(false);
   const [modalShow2, setModalShow2] = useState(false);
   const { login } = useContext(RoomsContext);
+  const navigate = useNavigate();
   // console.log(login);
 
   return (

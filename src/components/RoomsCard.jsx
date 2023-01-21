@@ -4,9 +4,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
 import { RoomsContext } from "../context/roomsContext";
+import { useNavigate } from "react-router-dom";
 
 export const RoomsCard = () => {
   const { rooms } = useContext(RoomsContext);
+  const navigate = useNavigate();
 
   return (
     <Col size="lg" style={{ marginBlock: "1rem", marginInlineStart: "25rem" }}>
@@ -32,11 +34,15 @@ export const RoomsCard = () => {
                 >
                   Furnished
                 </span>
-                <Card.Img variant="top" src={`/picsHousy/${e.imageUrl}`} />
+                <Card.Img
+                  onClick={() => navigate(`detail/${e.id}`)}
+                  variant="top"
+                  src={`/picsHousy/${e.imageUrl}`}
+                />
 
                 <Card.Body>
                   <Card.Title>
-                    Rp.{e.roomCost} / {e.period}
+                    Rp.{e.roomCost.toLocaleString()} / {e.period}
                   </Card.Title>
                   <Card.Text>
                     <p className="fw-bold">

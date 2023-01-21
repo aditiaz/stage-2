@@ -8,6 +8,7 @@
 .click {
   background-color: rgba(90, 87, 171, 1) !important;
   color: white !important;
+  border: none !important;
 }
 
 .noClick {
@@ -29,4 +30,14 @@
   font-size: 1rem;
   padding-block: 5px !important;
   color: black !important;
+}
+
+.detailPics img {
+  /* !important; */
+  border-radius: 5px !important;
+}
+.detailPicsSmall img {
+  /* !important; */
+  width: 29.5rem !important;
+  height: 19rem !important;
 }

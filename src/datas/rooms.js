@@ -7,7 +7,7 @@ const rooms = [
     districtAddress: "Pondok Aren",
     townAddress: "Tangerang Selatan",
     roomDesc:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "Lorem Ipsum is simply dummy text ofthe printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     roomCost: 9000000,
     roomSize: 1800,
     bedRoom: 1,
@@ -16,7 +16,7 @@ const rooms = [
   },
   {
     id: 2,
-    roomName: "House Astina",
+    roomName: "House Great",
     imageUrl: "2.png",
     roomStreetAddress: "Jl. Elang IV Perum Permata Bintaro Residence",
     districtAddress: "Pondok Aren",
@@ -31,7 +31,7 @@ const rooms = [
   },
   {
     id: 3,
-    roomName: "House Astina",
+    roomName: "House Aditia",
     imageUrl: "3.png",
     roomStreetAddress: "Jl. Elang IV Perum Permata Bintaro Residence",
     districtAddress: "Pondok Aren",
@@ -46,7 +46,7 @@ const rooms = [
   },
   {
     id: 4,
-    roomName: "House Astina",
+    roomName: "House Aditia Again",
     imageUrl: "4.png",
     roomStreetAddress: "Jl. Elang IV Perum Permata Bintaro Residence",
     districtAddress: "Pondok Aren",
@@ -61,7 +61,7 @@ const rooms = [
   },
   {
     id: 5,
-    roomName: "House Astina",
+    roomName: "House OMG Aditia",
     imageUrl: "5.png",
     roomStreetAddress: "Jl. Elang IV Perum Permata Bintaro Residence",
     districtAddress: "Pondok Aren",
@@ -76,7 +76,7 @@ const rooms = [
   },
   {
     id: 6,
-    roomName: "House Astina",
+    roomName: "House Realy Aditia?",
     imageUrl: "6.png",
     roomStreetAddress: "Jl. Elang IV Perum Permata Bintaro Residence",
     districtAddress: "Pondok Aren",
@@ -91,7 +91,7 @@ const rooms = [
   },
   {
     id: 7,
-    roomName: "House Astina",
+    roomName: "Luxury House ",
     imageUrl: "7.png",
     roomStreetAddress: "Jl. Elang IV Perum Permata Bintaro Residence",
     districtAddress: "Pondok Aren",
@@ -106,7 +106,7 @@ const rooms = [
   },
   {
     id: 8,
-    roomName: "House Astina",
+    roomName: "Aditia House",
     imageUrl: "8.png",
     roomStreetAddress: "Jl. Elang IV Perum Permata Bintaro Residence",
     districtAddress: "Pondok Aren",
@@ -121,7 +121,7 @@ const rooms = [
   },
   {
     id: 9,
-    roomName: "House Astina",
+    roomName: "Haunted House",
     imageUrl: "9.png",
     roomStreetAddress: "Jl. Elang IV Perum Permata Bintaro Residence",
     districtAddress: "Pondok Aren",
