@@ -43,7 +43,12 @@ export const DropdownNav = () => {
           <RiNewspaperLine />
           <span style={{ color: "black" }}> My Booking</span>
         </Dropdown.Item>
-        <Dropdown.Item className="dropDownNav">
+        <Dropdown.Item
+          onClick={() => {
+            navigate("/histories/");
+          }}
+          className="dropDownNav"
+        >
           <BsCalendar3 />
 
           <span style={{ color: "black" }}> History</span>

@@ -8,7 +8,7 @@ import * as Components from "./index";
 import { useState } from "react";
 import { useContext } from "react";
 import { RoomsContext } from "../context/roomsContext";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Navbars = () => {
   const { rooms } = useContext(RoomsContext);
@@ -76,5 +76,3 @@ export const Navbars = () => {
     </>
   );
 };
-
-// export default Navbars;

@@ -54,11 +54,15 @@ export function MyBooking() {
                   {detailRoom?.townAddress}
                 </p>
                 <div
-                  className="w-50  align-middle"
-                  style={{ height: "2rem", backgroundColor: "rgba(255, 153, 0, 0.1)" }}
+                  className=" align-middle"
+                  style={{
+                    height: "2rem",
+                    backgroundColor: "rgba(255, 153, 0, 0.1)",
+                    width: "15rem",
+                  }}
                 >
                   <p className="text-center" style={{ fontSize: "1.2rem", color: "#FF9900" }}>
-                    Waiting Approve
+                    Waiting to Approve
                   </p>
                 </div>
               </Col>
@@ -174,7 +178,7 @@ export function MyBooking() {
           <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Body>
               Pembayaran Anda Akan di Konfirmasi dalam 1 x 24 Jam Untuk melihat pesanan{" "}
-              <a href={`/myticketpending/${detailRoom}`}>Klik Disini</a> Terimakasih
+              <a href={`/histories/`}>Klik Disini</a> Terimakasih
             </Modal.Body>
           </Modal>
         </div>
