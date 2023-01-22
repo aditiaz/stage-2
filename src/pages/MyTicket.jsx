@@ -4,7 +4,7 @@ import { RoomsContext } from "../context/roomsContext";
 import React, { useContext, useState } from "react";
 import { Navbars } from "../components";
 
-export function MyBooking() {
+export const MyBooking = () => {
   // const {id} = useParams()
   const { rooms } = useContext(RoomsContext);
   const { booking } = useParams();
@@ -17,8 +17,7 @@ export function MyBooking() {
   const getData = JSON.parse(localStorage.getItem("Date"));
   const getProfile = JSON.parse(localStorage.getItem("UserSignUp"));
   console.log(getProfile);
-  // console.log(getData,"hallo guys")
-  // console.log(props.hotel[id].price)
+
   return (
     <Container>
       <Navbars />
@@ -126,5 +125,5 @@ export function MyBooking() {
       </Row>
     </Container>
   );
-}
+};
 export default MyBooking;

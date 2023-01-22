@@ -5,7 +5,6 @@ import { RiNewspaperLine } from "react-icons/ri";
 import { FiLogOut } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import profilePic from "../assets/profile.jpg";
-
 import React from "react";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
@@ -26,7 +25,12 @@ export const DropdownNav = () => {
         />
       </DropdownToggle>
       <DropdownMenu>
-        <Dropdown.Item className="dropDownNav">
+        <Dropdown.Item
+          onClick={() => {
+            navigate("/Profile/");
+          }}
+          className="dropDownNav"
+        >
           <BsPerson />
           <span style={{ color: "black" }}> Profile</span>
         </Dropdown.Item>

@@ -71,7 +71,7 @@ export const RoomsContextProvider = (props) => {
 
   useEffect(() => {
     // console.log(localStorage.getItem("UserSignIn"));
-    console.log(localStorage.getItem("UserSignUp"));
+    // console.log(localStorage.getItem("UserSignUp"));
     console.log(signInForm);
     // console.log(signInForm.username);
     // console.log(signInForm.password);

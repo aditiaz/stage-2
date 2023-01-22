@@ -5,9 +5,10 @@ import bathub from "../assets/bathub.svg";
 import { Button, Row, Col, Modal, Form } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { RoomsContext } from "../context/roomsContext";
-import { Calendar } from "../components";
+import moment from "moment";
 
 export const DetailProperty = () => {
+  const today = moment().format(" Do MMMM YYYY");
   const { rooms } = useContext(RoomsContext);
   const { room } = useParams();
   const detailRoom = rooms[room - 1];
@@ -130,7 +131,7 @@ export const DetailProperty = () => {
                       style={{ display: "flex", flexDirection: "column" }}
                       controlId="exampleForm.ControlInput1"
                     >
-                      <Calendar name="check_in" onChange={handleCheckInOut} />
+                      <h4 className="text-center">Today is {today}</h4>
                       <Form.Label style={{ fontWeight: "bold" }}>Check-in</Form.Label>
                       <input type="date" name="check_in" onChange={handleCheckInOut} />
                     </Form.Group>

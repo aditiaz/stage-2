@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { DetailProperty } from "./pages/DetailProperty";
 import { MyBooking } from "./pages/MyTicket";
+import { Profile } from "./pages/Profile";
 import { RoomsContextProvider } from "./context/roomsContext";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/detail/:room" element={<DetailProperty />} />
           <Route path="/booking/:booking" element={<MyBooking />} />
+          <Route path="/Profile/" element={<Profile />} />
           <Route path="*" element={<RoomsContextProvider />} />
         </Routes>
         {/* </BrowserRouter> */}
