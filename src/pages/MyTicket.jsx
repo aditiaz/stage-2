@@ -3,6 +3,11 @@ import { useParams } from "react-router-dom";
 import { RoomsContext } from "../context/roomsContext";
 import React, { useContext, useState } from "react";
 import { Navbars } from "../components";
+import { RxDotFilled, RxDividerVertical, RxDot } from "react-icons/rx";
+import dotOutLine from "../assets/dotOutLine.svg";
+import dotFill from "../assets/dotFill.svg";
+import lineBooking from "../assets/lineBooking.svg";
+import Logo from "../assets/Logo.svg";
 
 export function MyBooking() {
   // const {id} = useParams()
@@ -33,7 +38,7 @@ export function MyBooking() {
         >
           <div className="d-flex" style={{ justifyContent: "space-between" }}>
             <div className="p-4">
-              <img src="/img/Icon.svg" width={110} alt="" />
+              <img src={Logo} width={110} alt="" />
             </div>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
               <h2 className="p-3">Booking</h2>
@@ -43,11 +48,19 @@ export function MyBooking() {
           <div className="d-flex" style={{ justifyContent: "space-between" }}>
             <div>
               <h3 className="md-5">{detailRoom?.roomName}</h3>
-              <Col md={9}>
+              <Col md={8}>
                 <p>
                   {detailRoom?.roomStreetAddress},{detailRoom?.districtAddress},
                   {detailRoom?.townAddress}
                 </p>
+                <div
+                  className="w-50  align-middle"
+                  style={{ height: "2rem", backgroundColor: "rgba(255, 153, 0, 0.1)" }}
+                >
+                  <p className="text-center" style={{ fontSize: "1.2rem", color: "#FF9900" }}>
+                    Waiting Approve
+                  </p>
+                </div>
               </Col>
               <img src="/img/prove.svg" alt="" />
             </div>
@@ -55,14 +68,46 @@ export function MyBooking() {
               <img src="/img/prove.svg" alt="" />
             </div>
             <div>
-              <Col md={15}>
-                <div>
-                  <h5>Check-in</h5>
-                  <p style={{ color: "grey" }}>{getData?.check_in}</p>
-                </div>
-                <div>
-                  <h5>Check-Out</h5>
-                  <p style={{ color: "grey" }}>{getData?.check_out}</p>
+              <Col st md={15}>
+                <div className="d-flex gap-3">
+                  <div className="d-grid gap-1 " style={{ marginTop: "-2rem" }}>
+                    <img
+                      className="d-flex justify-content-center"
+                      style={{
+                        width: "2rem",
+                        height: "2rem",
+                        color: "black",
+                      }}
+                      src={dotOutLine}
+                      alt="dot"
+                    />
+
+                    {/* <div style={{ backgroundColor: "green", width: ".5rem", height: "5rem" }}>
+                      i
+                    </div> */}
+                    <img
+                      className="bg-primary"
+                      src={lineBooking}
+                      alt="line"
+                      style={{ marginInline: ".8rem", height: "7rem" }}
+                    />
+                    <img
+                      className="d-flex justify-content-center"
+                      style={{
+                        width: "2rem",
+                        height: "2rem",
+                        color: "black",
+                      }}
+                      src={dotFill}
+                      alt="dot"
+                    />
+                  </div>
+                  <div>
+                    <h5>Check-In</h5>
+                    <p style={{ color: "grey" }}>{getData?.check_in}</p>
+                    <h5>Check-Out</h5>
+                    <p style={{ color: "grey" }}>{getData?.check_out}</p>
+                  </div>
                 </div>
               </Col>
             </div>
@@ -76,11 +121,18 @@ export function MyBooking() {
                 <p style={{ color: "grey" }}>{detailRoom?.period}</p>
               </div>
             </div>
-            <div
-              className="d-flex"
-              style={{ flexDirection: "column", justifyContent: "center", alignItems: "center" }}
-            >
-              <img src="/image/Nota.svg" alt="" style={{ width: 150, height: "auto" }} />
+            <div>
+              <div
+                className="d-flex border border-4 border-dark"
+                style={{ flexDirection: "column", justifyContent: "center", alignItems: "center" }}
+              >
+                <img
+                  src={require("../assets/nota.png")}
+                  alt=""
+                  style={{ width: 150, height: "auto" }}
+                />
+              </div>
+              <h7 className="text-secondary">Uploaded payment proof</h7>
             </div>
           </div>
           <Table>
@@ -110,13 +162,13 @@ export function MyBooking() {
                   Total
                 </td>
                 <td>:</td>
-                <td style={{ fontWeight: "bold", color: "red" }}> Rpasd</td>
+                <td style={{ fontWeight: "bold", color: "red" }}> Rp.3.800.000</td>
               </tr>
             </tbody>
           </Table>
         </div>
         <div style={{ display: "flex", justifyContent: "end" }}>
-          <Button style={{ width: 200 }} onClick={handleShow}>
+          <Button style={{ width: 200, marginTop: "2rem" }} onClick={handleShow}>
             PAY
           </Button>
           <Modal show={show} onHide={handleClose} animation={false}>
