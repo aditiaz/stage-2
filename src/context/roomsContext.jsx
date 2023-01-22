@@ -13,6 +13,7 @@ export const RoomsContextProvider = (props) => {
     password: "",
   });
   const [login, setLogin] = useState(false);
+
   const handleLogin = () => {
     setLogin(true);
   };
@@ -23,6 +24,7 @@ export const RoomsContextProvider = (props) => {
   };
 
   const [signUpForm, setSignUpForm] = useState({
+    fullname: "",
     username: "",
     password: "",
     email: "",
@@ -81,6 +83,7 @@ export const RoomsContextProvider = (props) => {
 
     setRooms(filterData);
   };
+
   return (
     <RoomsContext.Provider
       value={{

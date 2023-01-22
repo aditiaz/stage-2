@@ -5,6 +5,7 @@ import bathub from "../assets/bathub.svg";
 import { Button, Row, Col, Modal, Form } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { RoomsContext } from "../context/roomsContext";
+import { Calendar } from "../components";
 
 export const DetailProperty = () => {
   const { rooms } = useContext(RoomsContext);
@@ -20,7 +21,7 @@ export const DetailProperty = () => {
     check_in: "",
     check_out: "",
   });
-
+  console.log(checkIn);
   const handleCheckInOut = (e) => {
     setCheckin({
       ...checkIn,
@@ -31,7 +32,7 @@ export const DetailProperty = () => {
     setShow(true);
     localStorage.setItem("Date", JSON.stringify(checkIn));
   };
-  //   console.log(detailRoom);
+  console.log(detailRoom);
   return (
     <>
       <Components.Navbars />;
@@ -113,6 +114,7 @@ export const DetailProperty = () => {
                 <Button
                   className="click fw-bold"
                   style={{ width: "15rem", height: "3.5rem", fontSize: "1.5rem" }}
+                  onClick={handleShow}
                 >
                   Book Now
                 </Button>
@@ -128,6 +130,7 @@ export const DetailProperty = () => {
                       style={{ display: "flex", flexDirection: "column" }}
                       controlId="exampleForm.ControlInput1"
                     >
+                      <Calendar name="check_in" onChange={handleCheckInOut} />
                       <Form.Label style={{ fontWeight: "bold" }}>Check-in</Form.Label>
                       <input type="date" name="check_in" onChange={handleCheckInOut} />
                     </Form.Group>
@@ -136,6 +139,7 @@ export const DetailProperty = () => {
                       style={{ display: "flex", flexDirection: "column" }}
                       controlId="exampleForm.ControlInput1"
                     >
+                      {/* <Calendar name="check_out" onChange={handleCheckInOut} /> */}
                       <Form.Label style={{ fontWeight: "bold" }}>Check-Out</Form.Label>
                       <input
                         type="date"
@@ -153,7 +157,7 @@ export const DetailProperty = () => {
                     variant="primary"
                     onClick={() => {
                       handleLocal();
-                      navigate(`/myticket/${detailRoom.id}`);
+                      navigate(`/booking/${room}`);
                     }}
                     style={{ backgroundColor: "#5A57AB", width: 200 }}
                   >
