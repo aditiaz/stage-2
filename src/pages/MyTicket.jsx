@@ -2,6 +2,7 @@ import { Table, Container, Button, Modal, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { RoomsContext } from "../context/roomsContext";
 import React, { useContext, useState } from "react";
+import { Navbars } from "../components";
 
 export function MyBooking() {
   // const {id} = useParams()
@@ -20,7 +21,8 @@ export function MyBooking() {
   // console.log(props.hotel[id].price)
   return (
     <Container>
-      <Row>
+      <Navbars />
+      <Row style={{ marginTop: "15rem" }}>
         <div
           style={{
             marginTop: 30,
@@ -111,7 +113,7 @@ export function MyBooking() {
           </Table>
         </div>
         <div style={{ display: "flex", justifyContent: "end" }}>
-          <Button style={{ width: 200 }} onClick={handleShow}>
+          <Button style={{ width: 200, marginTop: "2rem" }} onClick={handleShow}>
             PAY
           </Button>
           <Modal show={show} onHide={handleClose} animation={false}>
