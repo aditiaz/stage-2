@@ -27,14 +27,19 @@ export const DropdownNav = () => {
       <DropdownMenu>
         <Dropdown.Item
           onClick={() => {
-            navigate("/Profile/");
+            navigate("/profile/");
           }}
           className="dropDownNav"
         >
           <BsPerson />
           <span style={{ color: "black" }}> Profile</span>
         </Dropdown.Item>
-        <Dropdown.Item className="dropDownNav">
+        <Dropdown.Item
+          onClick={() => {
+            navigate("/booking/");
+          }}
+          className="dropDownNav"
+        >
           <RiNewspaperLine />
           <span style={{ color: "black" }}> My Booking</span>
         </Dropdown.Item>

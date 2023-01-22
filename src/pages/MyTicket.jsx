@@ -4,11 +4,11 @@ import { RoomsContext } from "../context/roomsContext";
 import React, { useContext, useState } from "react";
 import { Navbars } from "../components";
 
-export const MyBooking = () => {
+export function MyBooking() {
   // const {id} = useParams()
   const { rooms } = useContext(RoomsContext);
-  const { booking } = useParams();
-  const detailRoom = rooms[booking - 1];
+  const { room } = useParams();
+  const detailRoom = rooms[room - 1];
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -17,7 +17,8 @@ export const MyBooking = () => {
   const getData = JSON.parse(localStorage.getItem("Date"));
   const getProfile = JSON.parse(localStorage.getItem("UserSignUp"));
   console.log(getProfile);
-
+  // console.log(getData,"hallo guys")
+  // console.log(props.hotel[id].price)
   return (
     <Container>
       <Navbars />
@@ -41,9 +42,12 @@ export const MyBooking = () => {
           </div>
           <div className="d-flex" style={{ justifyContent: "space-between" }}>
             <div>
-              <h3 className="md-5">{detailRoom.roomName}</h3>
-              <Col md={8}>
-                <p>{detailRoom.roomStreetAddress}</p>
+              <h3 className="md-5">{detailRoom?.roomName}</h3>
+              <Col md={9}>
+                <p>
+                  {detailRoom?.roomStreetAddress},{detailRoom?.districtAddress},
+                  {detailRoom?.townAddress}
+                </p>
               </Col>
               <img src="/img/prove.svg" alt="" />
             </div>
@@ -69,7 +73,7 @@ export const MyBooking = () => {
               </div>
               <div>
                 <h5>Type of Rent</h5>
-                <p style={{ color: "grey" }}>Year</p>
+                <p style={{ color: "grey" }}>{detailRoom?.period}</p>
               </div>
             </div>
             <div
@@ -106,13 +110,13 @@ export const MyBooking = () => {
                   Total
                 </td>
                 <td>:</td>
-                <td style={{ fontWeight: "bold", color: "red" }}> Rp {detailRoom.roomCost}</td>
+                <td style={{ fontWeight: "bold", color: "red" }}> Rpasd</td>
               </tr>
             </tbody>
           </Table>
         </div>
         <div style={{ display: "flex", justifyContent: "end" }}>
-          <Button style={{ width: 200, marginTop: "2rem" }} onClick={handleShow}>
+          <Button style={{ width: 200 }} onClick={handleShow}>
             PAY
           </Button>
           <Modal show={show} onHide={handleClose} animation={false}>
@@ -125,5 +129,5 @@ export const MyBooking = () => {
       </Row>
     </Container>
   );
-};
+}
 export default MyBooking;
