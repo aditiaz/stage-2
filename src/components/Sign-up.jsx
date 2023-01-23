@@ -3,13 +3,14 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { RoomsContext } from "../context/roomsContext";
 import { React, useContext, useState } from "react";
+import { SignIn } from "./Sign-in";
 
 export const SignUp = (props) => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [modalShow, setModalShow] = useState(false);
+  const handleClose = () => setModalShow(false);
   //   const handleShow = () => setShow(true);
 
-  const { handleSignUpChange, handleSignUpSubmit, localSignUpForm2 } = useContext(RoomsContext);
+  const { handleSignUpChange, handleSignUpSubmit, navigate } = useContext(RoomsContext);
   // console.log(localSignUpForm2);
   const listAs = [{ value: "" }, { value: "Tenant" }, { value: "Admin" }];
   const gender = [{ value: "" }, { value: "Man" }, { value: "Woman" }];
@@ -130,14 +131,17 @@ export const SignUp = (props) => {
             type="submit"
             className="w-100 click"
             style={{ border: "none" }}
-            onClick={handleClose}
+            onClick={() => {
+              handleClose();
+            }}
           >
             Sign Up
           </Button>
+          <SignIn show={modalShow} onHide={() => setModalShow(false)} />
           {/* </Col> */}
         </Form>
         <h6 className="d-flex justify-content-center text-secondary my-3">
-          Don't have an account? click &nbsp;
+          Already have an account? click &nbsp;
           <a className="nav-link fw-bold" href="">
             Here
           </a>

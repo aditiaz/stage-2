@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import datas from "../datas/rooms";
+import books from "../datas/users";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -8,20 +9,13 @@ export const RoomsContext = createContext();
 export const RoomsContextProvider = (props) => {
   const navigate = useNavigate();
   const [rooms, setRooms] = useState(datas);
+  const [users, setUsers] = useState(books);
+  console.log(users);
   const [signInForm, setSignInForm] = useState({
     username: "",
     password: "",
   });
   const [login, setLogin] = useState(false);
-
-  const handleLogin = () => {
-    setLogin(true);
-  };
-
-  const [register, setRegister] = useState(false);
-  const handleRegister = () => {
-    setRegister(true);
-  };
 
   const [signUpForm, setSignUpForm] = useState({
     fullname: "",
@@ -51,7 +45,7 @@ export const RoomsContextProvider = (props) => {
   const handleSignInSubmit = (e) => {
     e.preventDefault();
     // localStorage.getItem("SignIn",)
-    let data = [];
+    // let data = [];
     const signUp = JSON.parse(localStorage.getItem("UserSignUp"));
     if (signUp.username === signInForm.username && signUp.password === signInForm.password) {
       console.log(signUp.username);
@@ -70,7 +64,6 @@ export const RoomsContextProvider = (props) => {
   const localSignUpForm2 = JSON.parse(localSignUpForm);
 
   useEffect(() => {
-    // console.log(localStorage.getItem("UserSignIn"));
     console.log(localStorage.getItem("UserSignUp"));
     console.log(signInForm);
     // console.log(signInForm.username);
@@ -95,6 +88,8 @@ export const RoomsContextProvider = (props) => {
         handleSignInSubmit,
         signInForm,
         handleSignInChange,
+        users,
+        navigate,
       }}
     >
       {props.children}

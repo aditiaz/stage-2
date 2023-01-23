@@ -1,27 +1,21 @@
-import { Table, Container, Button, Modal, Row, Col } from "react-bootstrap";
+import { Table, Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { RoomsContext } from "../context/roomsContext";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Navbars } from "../components";
 import dotOutLine from "../assets/dotOutLine.svg";
 import dotFill from "../assets/dotFill.svg";
 import lineBooking from "../assets/lineBooking.svg";
 import Logo from "../assets/Logo.svg";
 
-export function MyBooking() {
-  // const {id} = useParams()
+export const MyBookingPending = () => {
   const { rooms } = useContext(RoomsContext);
   const { room } = useParams();
   const detailRoom = rooms[room - 1];
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const getData = JSON.parse(localStorage.getItem("Date"));
   const getProfile = JSON.parse(localStorage.getItem("UserSignUp"));
   console.log(getProfile);
-
   return (
     <Container>
       <Navbars />
@@ -169,19 +163,9 @@ export function MyBooking() {
             </tbody>
           </Table>
         </div>
-        <div style={{ display: "flex", justifyContent: "end" }}>
-          <Button style={{ width: 200, marginTop: "2rem" }} onClick={handleShow}>
-            PAY
-          </Button>
-          <Modal show={show} onHide={handleClose} animation={false}>
-            <Modal.Body>
-              Pembayaran Anda Akan di Konfirmasi dalam 1 x 24 Jam Untuk melihat pesanan{" "}
-              <a href={`/histories/`}>Klik Disini</a> Terimakasih
-            </Modal.Body>
-          </Modal>
-        </div>
       </Row>
     </Container>
   );
-}
-export default MyBooking;
+};
+
+export default MyBookingPending;

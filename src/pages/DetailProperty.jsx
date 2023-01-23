@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import * as Components from "../components";
 import bed from "../assets/bed.svg";
 import bathub from "../assets/bathub.svg";
-import { Button, Row, Col, Modal, Form } from "react-bootstrap";
+import { Button, Col, Modal, Form } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { RoomsContext } from "../context/roomsContext";
 import moment from "moment";

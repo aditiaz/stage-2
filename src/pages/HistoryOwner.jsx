@@ -8,10 +8,9 @@ import lineBooking from "../assets/lineBooking.svg";
 import Logo from "../assets/Logo.svg";
 import Qr from "../assets/qr.svg";
 
-export const History = () => {
+export const HistoryOwner = () => {
   const { rooms } = useContext(RoomsContext);
-  // console.log(rooms);
-
+  const invoices = rooms;
   const getData = JSON.parse(localStorage.getItem("Date"));
   const getProfile = JSON.parse(localStorage.getItem("UserSignUp"));
   console.log(getProfile);
@@ -19,7 +18,7 @@ export const History = () => {
     <>
       <Navbars />
       <Container style={{ marginTop: "6rem" }}>
-        {rooms.map((e, i) => {
+        {invoices.map((e, i) => {
           return (
             <Row style={{ marginBlock: ".5rem" }}>
               <div

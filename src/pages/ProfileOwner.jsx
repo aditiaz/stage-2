@@ -9,7 +9,7 @@ import phone from "../assets/phoneIc.svg";
 import address from "../assets/addressIc.svg";
 import profile from "../assets/profile.jpg";
 
-export function Profile(props) {
+export function ProfileOwner(props) {
   const hiddenFileInput = useRef(null);
   const getProfile = JSON.parse(localStorage.getItem("UserSignUp"));
   const [image, setImage] = useState("");
@@ -25,6 +25,7 @@ export function Profile(props) {
     check_in: "",
     check_out: "",
   });
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
