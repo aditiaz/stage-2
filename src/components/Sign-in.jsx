@@ -13,8 +13,6 @@ export const SignIn = (props) => {
 
   return (
     <Modal
-      // show={show}
-      // onHide={handleClose}
       className="d-flex justifycontent-center w-25"
       {...props}
       size="xs"

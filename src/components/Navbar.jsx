@@ -5,15 +5,15 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { BsSearch } from "react-icons/bs";
 import * as Components from "./index";
-import { useState } from "react";
 import { useContext } from "react";
 import { RoomsContext } from "../context/roomsContext";
 import { useNavigate } from "react-router-dom";
 
 export const Navbars = () => {
-  const { rooms } = useContext(RoomsContext);
-  const [modalShow, setModalShow] = useState(false);
-  const [modalShow2, setModalShow2] = useState(false);
+  const { modalShow, setModalShow, modalShow2, setModalShow2 } = useContext(RoomsContext);
+  const roles = localStorage.Roles;
+  // console.log(roles);
+
   const navigate = useNavigate();
 
   return (
@@ -40,8 +40,14 @@ export const Navbars = () => {
             <BsSearch strokeWidth={0.5} fontSize={29} style={{ cursor: "pointer" }} />
           </InputGroup.Text>
         </InputGroup>
-        {localStorage.getItem("UserSignIn") ? (
-          <Components.DropdownNav />
+        {localStorage.getItem("UserSignIn") && roles === "Admin" ? (
+          <>
+            <Components.DropdownOwner />
+          </>
+        ) : localStorage.getItem("UserSignIn") && roles != "Admin" ? (
+          <>
+            <Components.DropdownNav />
+          </>
         ) : (
           <div className="d-flex justify-content-around gap-5">
             <Components.SignIn

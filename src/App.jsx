@@ -13,7 +13,7 @@ import MyBookingPending from "./pages/MyBookingPending";
 import IndexOwner from "./pages/IndexOwner";
 import { ProfileOwner } from "./pages/ProfileOwner";
 import { AddProperty } from "./pages/AddProperty";
-// import { SignIn } from "./components/Sign-in";
+import InvoiceDetail from "./components/InvoiceDetail";
 
 function App() {
   return (
@@ -31,6 +31,7 @@ function App() {
           <Route path="/indexOwner/" element={<IndexOwner />} />
           <Route path="/profileOwner/" element={<ProfileOwner />} />
           <Route path="/addProperty/" element={<AddProperty />} />
+          <Route path="/invoiceDetail/" element={<InvoiceDetail />} />
           {/* <Route path="/signIn/" element={<SignIn />} /> */}
           <Route path="*" element={<RoomsContextProvider />} />
         </Routes>

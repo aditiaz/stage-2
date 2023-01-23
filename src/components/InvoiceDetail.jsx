@@ -1,4 +1,4 @@
-import { Table, Container, Row, Col } from "react-bootstrap";
+import { Table, Container, Row, Col, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { RoomsContext } from "../context/roomsContext";
 import React, { useContext } from "react";
@@ -8,14 +8,13 @@ import dotFill from "../assets/dotFill.svg";
 import lineBooking from "../assets/lineBooking.svg";
 import Logo from "../assets/Logo.svg";
 
-export const MyBookingPending = () => {
+export const InvoiceDetail = () => {
   const { rooms } = useContext(RoomsContext);
-  const detailRoom = rooms[0];
-  // console.log(detailRoom);
+  //   const { room } = useParams();
+  const detailRoom = rooms[1];
 
   const getData = JSON.parse(localStorage.getItem("Date"));
   const getProfile = JSON.parse(localStorage.getItem("UserSignUp"));
-  console.log(getProfile);
   return (
     <Container>
       <Navbars />
@@ -78,9 +77,6 @@ export const MyBookingPending = () => {
                       alt="dot"
                     />
 
-                    {/* <div style={{ backgroundColor: "green", width: ".5rem", height: "5rem" }}>
-                      i
-                    </div> */}
                     <img
                       className="bg-primary"
                       src={lineBooking}
@@ -162,10 +158,14 @@ export const MyBookingPending = () => {
               </tr>
             </tbody>
           </Table>
+          <Col className="w-100 d-flex gap-3 justify-content-end my-3">
+            <Button variant="danger">Cancel</Button>
+            <Button variant="success">Approve</Button>
+          </Col>
         </div>
       </Row>
     </Container>
   );
 };
 
-export default MyBookingPending;
+export default InvoiceDetail;

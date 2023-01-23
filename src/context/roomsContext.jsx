@@ -16,6 +16,8 @@ export const RoomsContextProvider = (props) => {
     password: "",
   });
   const [login, setLogin] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
+  const [modalShow2, setModalShow2] = useState(false);
 
   const [signUpForm, setSignUpForm] = useState({
     fullname: "",
@@ -31,7 +33,7 @@ export const RoomsContextProvider = (props) => {
   const handleSignUpSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("UserSignUp", JSON.stringify(signUpForm));
-    localStorage.setItem("Roles", JSON.stringify(signUpForm.listAs));
+    localStorage.setItem("Roles", signUpForm.listAs);
   };
 
   const handleSignUpChange = (e) => {
@@ -47,7 +49,12 @@ export const RoomsContextProvider = (props) => {
     // localStorage.getItem("SignIn",)
     // let data = [];
     const signUp = JSON.parse(localStorage.getItem("UserSignUp"));
-    if (signUp.username === signInForm.username && signUp.password === signInForm.password) {
+    if (
+      signUp.username === signInForm.username &&
+      signUp.password === signInForm.password &&
+      signInForm.username != "" &&
+      signInForm.password != ""
+    ) {
       console.log(signUp.username);
       navigate("/");
       alert("ok");
@@ -64,8 +71,8 @@ export const RoomsContextProvider = (props) => {
   const localSignUpForm2 = JSON.parse(localSignUpForm);
 
   useEffect(() => {
-    console.log(localStorage.getItem("UserSignUp"));
-    console.log(signInForm);
+    // console.log(localStorage.getItem("UserSignUp"));
+    // console.log(signInForm);
     // console.log(signInForm.username);
     // console.log(signInForm.password);
   }, [signInForm]);
@@ -90,6 +97,10 @@ export const RoomsContextProvider = (props) => {
         handleSignInChange,
         users,
         navigate,
+        modalShow,
+        setModalShow,
+        modalShow2,
+        setModalShow2,
       }}
     >
       {props.children}

@@ -6,9 +6,7 @@ import { React, useContext, useState } from "react";
 import { SignIn } from "./Sign-in";
 
 export const SignUp = (props) => {
-  const [modalShow, setModalShow] = useState(false);
-  const handleClose = () => setModalShow(false);
-  //   const handleShow = () => setShow(true);
+  const { setModalShow2, setModalShow, modalShow } = useContext(RoomsContext);
 
   const { handleSignUpChange, handleSignUpSubmit, navigate } = useContext(RoomsContext);
   // console.log(localSignUpForm2);
@@ -17,8 +15,6 @@ export const SignUp = (props) => {
 
   return (
     <Modal
-      //   show={show}
-      //   onHide={handleClose}
       className="d-flex justifycontent-center w-25 h-"
       {...props}
       size="xs"
@@ -121,18 +117,17 @@ export const SignUp = (props) => {
             />
           </Form.Group>
 
-          {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Gender</Form.Label>
-            <Form.Control onChange={handleChange} id="gender" name="gender" type="text" autoFocus />
-          </Form.Group> */}
-
-          {/* <Col className="d-flex justify-content-center"> */}
           <Button
             type="submit"
             className="w-100 click"
             style={{ border: "none" }}
             onClick={() => {
-              handleClose();
+              {
+                // handleClose();
+                setModalShow2(false);
+                setModalShow(true);
+                // setModalShow2(false);
+              }
             }}
           >
             Sign Up
@@ -142,9 +137,18 @@ export const SignUp = (props) => {
         </Form>
         <h6 className="d-flex justify-content-center text-secondary my-3">
           Already have an account? click &nbsp;
-          <a className="nav-link fw-bold" href="">
+          <p
+            onClick={() => {
+              {
+                // handleClose();
+                setModalShow(true);
+              }
+            }}
+            className="nav-link fw-bold"
+            style={{ cursor: "pointer" }}
+          >
             Here
-          </a>
+          </p>
         </h6>
       </Modal.Body>
     </Modal>

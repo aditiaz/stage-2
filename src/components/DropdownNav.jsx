@@ -1,5 +1,4 @@
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 import { BsPerson, BsCalendar3 } from "react-icons/bs";
 import { RiNewspaperLine } from "react-icons/ri";
 import { FiLogOut } from "react-icons/fi";
@@ -8,8 +7,9 @@ import profilePic from "../assets/profile.jpg";
 import React from "react";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
+import Cabin from "../assets/cabinIc.svg";
 
-export const DropdownNav = () => {
+const DropdownNav = () => {
   const navigate = useNavigate();
   return (
     <Dropdown
@@ -68,3 +68,66 @@ export const DropdownNav = () => {
     </Dropdown>
   );
 };
+
+const DropdownOwner = () => {
+  const navigate = useNavigate();
+  return (
+    <Dropdown
+      style={{ color: "white", backgroundColor: "white", border: "white" }}
+      id="dropdown-basic-button"
+      title="Dropdown button"
+    >
+      <DropdownToggle variant="white">
+        <img
+          style={{ width: "3.5rem", borderRadius: "50%", backgroundColor: "black" }}
+          src={profilePic}
+          alt="pp"
+        />
+      </DropdownToggle>
+      <DropdownMenu>
+        <Dropdown.Item
+          onClick={() => {
+            navigate("/profileOwner/");
+          }}
+          className="dropDownNav"
+        >
+          <BsPerson />
+          <span style={{ color: "black" }}> Profile</span>
+        </Dropdown.Item>
+        <Dropdown.Item
+          onClick={() => {
+            navigate("/addProperty/");
+          }}
+          className="dropDownNav"
+        >
+          <img src={Cabin} alt="cabin" style={{ width: "1.3rem" }} />
+
+          <span style={{ color: "black" }}> Add Property</span>
+        </Dropdown.Item>
+        <Dropdown.Item
+          onClick={() => {
+            navigate("/historiesOwner/");
+          }}
+          className="dropDownNav"
+        >
+          <BsCalendar3 />
+
+          <span style={{ color: "black" }}> History</span>
+        </Dropdown.Item>
+        <Dropdown.Divider />
+        <Dropdown.Item
+          onClick={() => {
+            navigate("/");
+            localStorage.removeItem("UserSignIn");
+          }}
+          className="dropDownNav"
+        >
+          <FiLogOut />
+          <span style={{ color: "black" }}> Logout </span>
+        </Dropdown.Item>
+      </DropdownMenu>
+    </Dropdown>
+  );
+};
+
+export { DropdownNav, DropdownOwner };
