@@ -64,19 +64,19 @@ export const AddProperty = () => {
           <div className="d-flex gap-5" style={{ fontWeight: "500", fontSize: "1.2rem" }}>
             <Form.Check
               //   style={{ fontWeight: "300", fontSize: "1.2rem" }}
-              type="check"
+              type="checkbox"
               id="furnished"
               label="Furnished"
             />
             <Form.Check
               //   style={{ fontWeight: "300", fontSize: "1.2rem" }}
-              type="check"
+              type="checkbox"
               id="pet-allowed"
               label="Pet Allowed"
             />
             <Form.Check
               //   style={{ fontWeight: "500", fontSize: "1.2rem" }}
-              type="check"
+              type="checkbox"
               id="shared-accomodation"
               label="Shared Acconodation"
             />

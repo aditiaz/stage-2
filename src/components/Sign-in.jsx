@@ -1,18 +1,22 @@
 import { Modal, Button, Form } from "react-bootstrap";
-import { React, useContext, useState } from "react";
+import { React, useContext, useState, useEffect } from "react";
 import { RoomsContext } from "../context/roomsContext";
+import { useNavigate } from "react-router-dom";
 
 export const SignIn = (props) => {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const { handleSignInChange, handleSignInSubmit, signInForm } = useContext(RoomsContext);
-  console.log(signInForm);
+  const { handleSignInChange, handleSignInSubmit, setModalSignIn } = useContext(RoomsContext);
+  // console.log(signInForm);
   // console.log(localStorage.getItem("UserSignIn"));
+  // const roles = localStorage.Roles;
 
   return (
     <Modal
+      show={show}
       className="d-flex justifycontent-center w-25"
       {...props}
       size="xs"
@@ -21,7 +25,7 @@ export const SignIn = (props) => {
     >
       <h2 className="d-flex justify-content-center my-3">Sign In</h2>
 
-      <Modal.Body>
+      <Modal.Body show={show}>
         <Form onSubmit={handleSignInSubmit} className="fw-bold">
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Username</Form.Label>
@@ -49,7 +53,7 @@ export const SignIn = (props) => {
             type="submit"
             className="w-100 click"
             style={{ border: "none" }}
-            onClick={handleClose}
+            onClick={() => setModalSignIn(false)}
           >
             Sign In
           </Button>

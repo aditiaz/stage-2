@@ -265,7 +265,11 @@ export const SideBar = () => {
                   <Button
                     className="px-5"
                     size="lg"
-                    style={{ fontSize: "1.3rem", backgroundColor: "rgba(90, 87, 171, 1)" }}
+                    style={{
+                      fontSize: "1.3rem",
+                      backgroundColor: "rgba(90, 87, 171, 1)",
+                      border: "none",
+                    }}
                   >
                     Apply
                   </Button>

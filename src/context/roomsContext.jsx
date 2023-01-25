@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
-import datas from "../datas/rooms";
-import books from "../datas/users";
+import datas from "../assets/datas/rooms";
+import books from "../assets/datas/users";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,14 +10,14 @@ export const RoomsContextProvider = (props) => {
   const navigate = useNavigate();
   const [rooms, setRooms] = useState(datas);
   const [users, setUsers] = useState(books);
-  console.log(users);
+  // console.log(users);
   const [signInForm, setSignInForm] = useState({
     username: "",
     password: "",
   });
   const [login, setLogin] = useState(false);
-  const [modalShow, setModalShow] = useState(false);
-  const [modalShow2, setModalShow2] = useState(false);
+  const [modalSignUp, setModalSignUp] = useState(false);
+  const [modalSignIn, setModalSignIn] = useState(false);
 
   const [signUpForm, setSignUpForm] = useState({
     fullname: "",
@@ -97,10 +97,10 @@ export const RoomsContextProvider = (props) => {
         handleSignInChange,
         users,
         navigate,
-        modalShow,
-        setModalShow,
-        modalShow2,
-        setModalShow2,
+        modalSignUp,
+        setModalSignUp,
+        modalSignIn,
+        setModalSignIn,
       }}
     >
       {props.children}

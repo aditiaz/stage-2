@@ -1,16 +1,22 @@
 import Dropdown from "react-bootstrap/Dropdown";
-import { BsPerson, BsCalendar3 } from "react-icons/bs";
+import { BsPerson, BsCalendar3, BsListUl } from "react-icons/bs";
 import { RiNewspaperLine } from "react-icons/ri";
 import { FiLogOut } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import profilePic from "../assets/profile.jpg";
-import React from "react";
+import React, { useEffect } from "react";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import Cabin from "../assets/cabinIc.svg";
 
 const DropdownNav = () => {
   const navigate = useNavigate();
+  const roles = localStorage.Roles;
+
+  useEffect(() => {
+    navigate("/");
+  }, [roles]);
+
   return (
     <Dropdown
       style={{ color: "white", backgroundColor: "white", border: "white" }}
@@ -93,6 +99,16 @@ const DropdownOwner = () => {
         >
           <BsPerson />
           <span style={{ color: "black" }}> Profile</span>
+        </Dropdown.Item>
+        <Dropdown.Item
+          onClick={() => {
+            navigate("/indexOwner/");
+          }}
+          className="dropDownNav"
+        >
+          <BsListUl />
+
+          <span style={{ color: "black" }}> List Properties</span>
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => {

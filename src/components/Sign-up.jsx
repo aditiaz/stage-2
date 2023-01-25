@@ -6,9 +6,9 @@ import { React, useContext, useState } from "react";
 import { SignIn } from "./Sign-in";
 
 export const SignUp = (props) => {
-  const { setModalShow2, setModalShow, modalShow } = useContext(RoomsContext);
+  const { setModalSignIn, setModalSignUp, modalSignUp, modalSignIn } = useContext(RoomsContext);
 
-  const { handleSignUpChange, handleSignUpSubmit, navigate } = useContext(RoomsContext);
+  const { handleSignUpChange, handleSignUpSubmit } = useContext(RoomsContext);
   // console.log(localSignUpForm2);
   const listAs = [{ value: "" }, { value: "Tenant" }, { value: "Admin" }];
   const gender = [{ value: "" }, { value: "Man" }, { value: "Woman" }];
@@ -124,15 +124,15 @@ export const SignUp = (props) => {
             onClick={() => {
               {
                 // handleClose();
-                setModalShow2(false);
-                setModalShow(true);
+                setModalSignIn(true);
+                setModalSignUp(false);
                 // setModalShow2(false);
               }
             }}
           >
             Sign Up
           </Button>
-          <SignIn show={modalShow} onHide={() => setModalShow(false)} />
+          <SignIn show={modalSignIn} onHide={() => setModalSignUp(false)} />
           {/* </Col> */}
         </Form>
         <h6 className="d-flex justify-content-center text-secondary my-3">
@@ -141,7 +141,7 @@ export const SignUp = (props) => {
             onClick={() => {
               {
                 // handleClose();
-                setModalShow(true);
+                setModalSignUp(true);
               }
             }}
             className="nav-link fw-bold"

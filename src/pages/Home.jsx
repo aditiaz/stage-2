@@ -14,21 +14,12 @@ export const Home = () => {
   }, [roles]);
 
   return (
-    <div>
+    <>
       <Components.Navbars />
-      {roles === "Admin" ? (
-        <IndexOwner />
-      ) : (
-        <Row>
-          <Components.SideBar />
-          <Components.RoomsCard />
-        </Row>
-      )}
-      {/* <Components.Navbars /> */}
-      {/* <Row>
+      <Row>
         <Components.SideBar />
         <Components.RoomsCard />
-      </Row> */}
-    </div>
+      </Row>
+    </>
   );
 };

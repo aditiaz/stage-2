@@ -10,7 +10,7 @@ import { RoomsContext } from "../context/roomsContext";
 import { useNavigate } from "react-router-dom";
 
 export const Navbars = () => {
-  const { modalShow, setModalShow, modalShow2, setModalShow2 } = useContext(RoomsContext);
+  const { modalSignUp, setModalSignUp, modalSignIn, setModalSignIn } = useContext(RoomsContext);
   const roles = localStorage.Roles;
   // console.log(roles);
 
@@ -52,25 +52,26 @@ export const Navbars = () => {
           <div className="d-flex justify-content-around gap-5">
             <Components.SignIn
               className="d-flex justify-content-center"
-              show={modalShow}
-              onHide={() => setModalShow(false)}
+              show={modalSignIn}
+              onHide={() => setModalSignIn(false)}
             />
             <Button
-              onClick={() => setModalShow(true)}
+              onClick={() => setModalSignIn(true)}
               // disabled
               className="text-secondary fw-bold"
               style={{ backgroundColor: "rgba(255, 255, 255, 1)", border: "none" }}
             >
               Sign In
             </Button>
+
             <Components.SignUp
               className="d-flex justify-content-center"
-              show={modalShow2}
-              onHide={() => setModalShow2(false)}
+              show={modalSignUp}
+              onHide={() => setModalSignUp(false)}
             />
             <Button
-              onClick={() => setModalShow2(true)}
               // disabled
+              onClick={() => setModalSignUp(true)}
               className="text-secondary fw-bold"
               style={{ backgroundColor: "rgba(255, 255, 255, 1)", border: "none" }}
             >

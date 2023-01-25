@@ -11,9 +11,7 @@ import { RoomsContext } from "../context/roomsContext";
 import { useNavigate } from "react-router-dom";
 
 export const Navbars = () => {
-  const [modalShow, setModalShow] = useState(false);
-  const [modalShow2, setModalShow2] = useState(false);
-  const { login } = useContext(RoomsContext);
+  const { login, modalSignIn, setModalSignIn } = useContext(RoomsContext);
   const navigate = useNavigate();
   // console.log(login);
 
@@ -47,11 +45,11 @@ export const Navbars = () => {
           <div className="d-flex justify-content-around gap-5">
             <Components.SignIn
               className="d-flex justify-content-center"
-              show={modalShow}
-              onHide={() => setModalShow(false)}
+              show={modalSignUp}
+              onHide={() => setModalSignIn(false)}
             />
             <Button
-              onClick={() => setModalShow(true)}
+              onClick={() => setModalSignIn(true)}
               // disabled
               className="text-secondary fw-bold"
               style={{ backgroundColor: "rgba(255, 255, 255, 1)", border: "none" }}
@@ -60,11 +58,11 @@ export const Navbars = () => {
             </Button>
             <Components.SignUp
               className="d-flex justify-content-center"
-              show={modalShow2}
-              onHide={() => setModalShow2(false)}
+              show={modalSignIn}
+              onHide={() => setModalSignIn(false)}
             />
             <Button
-              onClick={() => setModalShow2(true)}
+              onClick={() => setModalSignIn(true)}
               // disabled
               className="text-secondary fw-bold"
               style={{ backgroundColor: "rgba(255, 255, 255, 1)", border: "none" }}

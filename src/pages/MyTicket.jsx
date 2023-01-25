@@ -60,7 +60,7 @@ export function MyBooking() {
                   }}
                 >
                   <p className="text-center" style={{ fontSize: "1.2rem", color: "#FF9900" }}>
-                    Waiting to Approve
+                    Waiting Payment
                   </p>
                 </div>
               </Col>
@@ -176,7 +176,7 @@ export function MyBooking() {
           <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Body>
               Pembayaran Anda Akan di Konfirmasi dalam 1 x 24 Jam Untuk melihat pesanan{" "}
-              <a href={`/histories/`}>Klik Disini</a> Terimakasih
+              <a href={`/bookingPending/`}>Klik Disini</a> Terimakasih
             </Modal.Body>
           </Modal>
         </div>
